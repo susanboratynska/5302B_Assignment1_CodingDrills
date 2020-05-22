@@ -1,6 +1,6 @@
 # Canadian Computing Competition 2020
 
-### 5302 Assignment Requirements
+### HTTP5302 Assignment Requirements
 Complete 3 Junior level questions while focusing on the following areas:
 * Variables
 * Control Structures
