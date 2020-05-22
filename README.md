@@ -13,4 +13,4 @@ The [Canadian Computing Competition](https://www.cemc.uwaterloo.ca/contests/comp
 ### Description
 Questions were selected from the 2020 CCC. 
 * [Past CCC Contest Questions](https://www.cemc.uwaterloo.ca/contests/past_contests.html#ccc)
-* [2020 CCC Junior Questions](chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://www.cemc.uwaterloo.ca/contests/computing/2020/stage%201/juniorEF.pdf)
+* [2020 CCC Junior Questions](https://www.cemc.uwaterloo.ca/contests/computing/2020/stage%201/juniorEF.pdf)
