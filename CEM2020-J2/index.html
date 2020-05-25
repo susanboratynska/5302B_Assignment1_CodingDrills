@@ -3,42 +3,39 @@
 <head>
 	<meta charset="utf-8">
 	<script src="script.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<style>
 		.error {color:red;}
+		body {padding: 25px; padding-right:500px;}
 	</style>
 </header>
 <body>
 	<h1>Problem J2: Epidemiology</h1>
+	<h2>Canadian Computing Competition 2020</h2>
 
-	<a target="_blank" href="chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://cemc.math.uwaterloo.ca/contests/computing/2020/stage%201/juniorEF.pdf">Link to question</a><br/><br/>
+	<a target="_blank" href="https://cemc.math.uwaterloo.ca/contests/computing/2020/stage%201/juniorEF.pdf" class="btn btn-secondary">Link to question</a><br/><br/><br/>
 
-	<form name="epidemiology" action="">
+	<form name="epidemiology" action="" >
+		<div class="form-group">
+			<label for="p"><strong>P</strong> - Total number of people with the disease:</label>
+			<input type="text" class="form-control" name="p"><br/>
+			<div id="p-error" class="error"></div>
+		</div>
 
-		<label for="p"><strong>P</strong> - Total number of people who have the disease:</label>
-		<input type="text" name="p"><br/>
-		<div id="p-error" class="error"></div>
+		<div class="form-group">
+			<label for="n"><strong>N</strong> - Number of people who have the disease on Day 0:</label>
+			<input type="text" class="form-control" name="n"><br/>
+			<div id="n-error" class="error"></div>
+		</div>
 
-		<label for="n"><strong>N</strong> - Number of people who have had the disease on Day 0:</label>
-		<input type="text" name="n"><br/>
-		<div id="n-error" class="error"></div>
+		<div class="form-group">
+			<label for="r"><strong>R</strong> - Spread of the disease (number of people that get infected the very next day):</label>
+			<select name="r" class=form-control id="rselect">
+			</select>
+			<div id="r-error" class="error"></div>
+		</div>
 
-		<label for="r"><strong>R</strong> - Spread of the disease:</label>
-		<select name="r">
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-		</select><br/>
-		<div id="r-error" class="error"></div>
-
-		<input type="submit">
+		<input type="submit" class="btn btn-primary">
 	</form> <br/><br/>
 
 	<div id="output"></div>

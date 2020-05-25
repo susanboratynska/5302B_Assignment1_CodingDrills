@@ -3,21 +3,24 @@
 <head>
 	<meta charset="utf-8">
 	<script src="script.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<style>
 		.error {color:red;}
+		body {padding: 25px; padding-right:500px;}
 	</style>
 </header>
 <body>
 	<h1>Problem J3: ART</h1>
 	<h2>Canadian Computing Competition 2020</h2>
 
-	<a target="_blank" href="chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://cemc.math.uwaterloo.ca/contests/computing/2020/stage%201/juniorEF.pdf">Link to question</a><br/><br/>
+	<a target="_blank" href="https://cemc.math.uwaterloo.ca/contests/computing/2020/stage%201/juniorEF.pdf" class="btn btn-secondary">Link to question</a><br/><br/><br/>
 
 	<form name="art" action="">
-
-		<label for="n"><strong>N</strong> - Number paint droplets:</label>
-		<input type="text" name="n" placeholder="2-100"><br/>
-		<div id="n-error" class="error"></div><br/>
+		<div class="form-group">
+			<label for="n" ><strong>Number Paint Droplets:</strong></label>
+			<input type="text" class="form-control" name="n" placeholder="2-100"><br/>
+			<div id="error" class="error"></div>
+		</div>
 
 <!-- 
 		<div>
@@ -49,15 +52,13 @@
 			(<input type="text" name="x5">, <input type="text" name="y5">)
 		</div> -->
 
-		<input type="submit">
+		<input type="submit" class="btn btn-primary">
 	</form> <br/><br/>
 
-	<strong>Coordinates (x,y)</strong>
 
 	<div id="autogencoordinate"></div><br/>
 
-	<div id="output1"></div>
-	<div id="output2"></div>
+	<div id="output"></div>
 	
 
 </body>

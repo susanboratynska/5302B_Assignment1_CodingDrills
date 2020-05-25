@@ -3,8 +3,7 @@ window.onload = function (){
 
 	// Set variables:
 	var formHandle = document.forms.art;
-	var output1 = document.getElementById('output1');
-	var output2 = document.getElementById('output2');
+	var output = document.getElementById('output');
 
 	var autogencoordinate = document.getElementById('autogencoordinate');
 
@@ -12,19 +11,85 @@ window.onload = function (){
 	formHandle.onsubmit = calculate;
 
 
-	// Function to generate random number:
+	// Function to generate random number between 1-99:
 	function randomNumber(){
-		return Math.floor(Math.random() * 101);
+		return Math.floor(Math.random() * 100) + 1;
 	}	
 
 	// Function to calculate smallest canvas coordinates:
 	function calculate (form) {
 
+
 		form.preventDefault();
 
 		// Set variables:
 		var N = parseInt(formHandle.n.value);
-		console.log(N);
+		console.log("N = " + N);
+
+		var error = document.getElementById('error');
+
+
+		// Validation:	
+		if (N < 2 || N > 100 || isNaN(N)){
+			error.innerHTML = "Please select a number between 2 and 10."
+			autogencoordinate.innerHTML = "";
+			output.innerHTML = "";
+
+		} else {
+			error.innerHTML = "";
+
+			var xarray = [];
+			var yarray = [];
+
+			autogencoordinate.innerHTML = "";
+
+
+			var i = 1;
+
+			autogencoordinate.innerHTML = "<strong>Coordinates (x,y) of Paint Droplets: </strong>";
+
+			while (i <= N) {
+
+				var x = randomNumber();
+				var y = randomNumber();
+
+				xarray.push(x);
+				yarray.push(y);
+
+				console.log(x);
+				console.log(y);
+
+				i++;
+
+				autogencoordinate.innerHTML += "<div>(" + x + "," + y +  ")</div>";
+			}
+
+
+			// Determine the coordinates of the bottom-left corner and top right corner of the frame:
+
+			var xsorted = xarray.sort(function (a,b){return a-b});
+			var ysorted = yarray.sort(function (a,b){return a-b});
+
+			// Top Right Coordinates - add 1 to encompass the drop of paint:
+			var xbig = xsorted[xsorted.length - 1] + 1;
+			var ybig = ysorted[ysorted.length - 1] + 1;
+
+			// Bottom Left Coordinates - minus 1 to encompass the drop of paint:
+			var xsmall = xsorted[0] - 1;
+			var ysmall = ysorted[0] - 1;
+
+			console.log(xsmall);
+			console.log(ysmall);
+
+			console.log(xbig);
+			console.log(ybig);
+
+
+			output.innerHTML = "<strong>The smallest rectangle containing all the drops of paint:</strong><br/>Bottom left coordinates: (" + xsmall + "," + ysmall + ")<br/>Top right coordinates: (" + xbig + "," + ybig + ")";
+
+
+		}
+
 
 		// Used to test samples values provided in question:
 
@@ -44,51 +109,7 @@ window.onload = function (){
 		// var X5 = parseInt(formHandle.x5.value);
 		// var Y5 = parseInt(formHandle.y5.value);
 
-		var xarray = [];
-		var yarray = [];
-
-
-		var i = 1;
-
-		while (i <= N) {
-
-			var x = randomNumber();
-			var y = randomNumber();
-
-			xarray.push(x);
-			yarray.push(y);
-
-			console.log(x);
-			console.log(y);
-
-			i++;
-
-			autogencoordinate.innerHTML += "<div>(" + x + "," + y +  ")</div>";
-		}
-
-
-		// Determine the coordinates of the bottom-left corner and top right corner of the frame:
-
-		var xsorted = xarray.sort(function (a,b){return a-b});
-		var ysorted = yarray.sort(function (a,b){return a-b});
-
-		// Top Right Coordinates - add 1 to encompass the drop of paint:
-		var xbig = xsorted[xsorted.length - 1] + 1;
-		var ybig = ysorted[ysorted.length - 1] + 1;
-
-		// Bottom Left Coordinates - minus 1 to encompass the drop of paint:
-		var xsmall = xsorted[0] - 1;
-		var ysmall = ysorted[0] - 1;
-
-		console.log(xsmall);
-		console.log(ysmall);
-
-		console.log(xbig);
-		console.log(ybig);
-
-		output1.innerHTML = "Bottom left coordinates: (" + xsmall + "," + ysmall + ")";
-		output2.innerHTML = "Top right coordinates: (" + xbig + "," + ybig + ")";
-
+		
 	};
 
 }

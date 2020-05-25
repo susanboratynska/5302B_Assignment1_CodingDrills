@@ -6,6 +6,10 @@ window.onload = function (){
 
 	var output = document.getElementById("output");
 
+	var small = document.getElementById("small");
+	var med = document.getElementById("med");
+	var large = document.getElementById("large");
+
 	var smalltreatval = 1;
 	var medtreatval = 2;
 	var largetreatval = 3;
@@ -14,6 +18,21 @@ window.onload = function (){
 	var happy = "Barley is happy.";
 
 	var totaltreatvalue;
+
+	// Function to output select values:
+	function selectvalues (idname){
+		var i = 0;
+		while (i <= 10){
+			idname.innerHTML += "<option value='" + i + "'>" + i + "</option>";
+			i++;
+		}
+	}
+
+	selectvalues(small);
+	selectvalues(med);
+	selectvalues(large);
+
+
 
 
 	// Calculate happiness score:
